@@ -1,0 +1,1292 @@
+{
+  "termino-da-criação": {
+    "type": "special",
+    "dano": 5,
+    "elemento": "luz",
+    "Mod": "+infinite",
+    "img": "Att/termino-da-criação.png",
+    "description": "+5 de luz ao jogar"
+  },
+  "pássado": {
+    "type": "special",
+    "Mod": "fish-any-old", 
+    "img": "Att/pássado.png",
+    "description": ""
+  },
+  "tempo-relativo": {
+    "type": "special",
+    "value": 3,
+    "Mod": "turn+",
+    "img": "Att/tempo-relativo.png",
+    "description": ""
+  },
+  "lananca": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "luz",
+    "Mod": "aoe / random-value ",
+    "img": "Att/lananca.png",
+    "description": ""
+  },
+  "abismo-injusto": {
+    "type": "attack, special",
+    "Mod": "delete-defense",
+    "img": "Att/abismo-injusto.png",
+    "description": ""
+  },
+  "contrato-mágico": {
+    "type": "special",
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Att/contrato-mágico.png",
+    "description": ""
+  },
+  "reflexo-do-héroi": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Att/reflexo-do-héroi.png",
+    "description": ""
+  },
+  "bomba-do-destino": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Att/bomba-do-destino.png",
+    "description": ""
+  },
+  "pé-quente": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Defesas/pé-quente.png",
+    "description": ""
+  },
+  "anel-do-castigo-divino": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Defesas/anel-do-castigo-divino.png",
+    "description": ""
+  },
+  "peitoral-humanoide-2": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Defesas/peitoral-humanoide-2.png",
+    "description": ""
+  },
+  "tabua": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Defesas/tabua.png",
+    "description": ""
+  },
+  "limpador-profundo": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Defesas/limpador-profundo.png",
+    "description": ""
+  },
+  "escudo-da-floresta": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Defesas/escudo-da-floresta.png",
+    "description": ""
+  },
+  "lasca-de-proteção": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Defesas/lasca-de-proteção.png",
+    "description": ""
+  },
+  "louco-e-sonhador": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Defesas/louco-e-sonhador.png",
+    "description": ""
+  },
+  "escudo-da-divindade": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Defesas/escudo-da-divindade.png",
+    "description": ""
+  },
+  "botadao-de-couro": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Defesas/botadao-de-couro.png",
+    "description": ""
+  },
+  "mao-fria": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Defesas/mao-fria.png",
+    "description": ""
+  },
+  "mascara-do-novoeiro": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Defesas/mascara-do-novoeiro.png",
+    "description": ""
+  },
+  "criar-pragas": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Defesas/criar-pragas.png",
+    "description": ""
+  },
+  "cinto-de-gauia": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Defesas/cinto-de-gauia.png",
+    "description": ""
+  },
+  "mão-de-ferro": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Defesas/mão-de-ferro.png",
+    "description": ""
+  },
+  "pedra-infernal": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Defesas/pedra-infernal.png",
+    "description": ""
+  },
+  "pedra-da-caverna-do-rei": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Defesas/pedra-da-caverna-do-rei.png",
+    "description": ""
+  },
+  "aurela-angelical": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Defesas/aurela-angelical.png",
+    "description": ""
+  },
+  "muralha-de-gelo": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Defesas/muralha-de-gelo.png",
+    "description": ""
+  },
+  "escudeiro-de-aÇo": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Defesas/escudeiro-de-aÇo.png",
+    "description": ""
+  },
+  "pecado-ganacioso": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Defesas/pecado-ganacioso.png",
+    "description": ""
+  },
+  "capa-infernal": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Defesas/capa-infernal.png",
+    "description": ""
+  },
+  "defesa-de-gelo": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Defesas/defesa-de-gelo.png",
+    "description": ""
+  },
+  "destruidor-da-luz": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Defesas/destruidor-da-luz.png",
+    "description": ""
+  },
+  "coroa-do-verdadeiro-deus": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Defesas/coroa-do-verdadeiro-deus.png",
+    "description": ""
+  },
+  "flash": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Defesas/flash.png",
+    "description": ""
+  },
+  "espelho": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Defesas/espelho.png",
+    "description": ""
+  },
+  "escudo-angelical": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Defesas/escudo-angelical.png",
+    "description": ""
+  },
+  "peitoral-humanoide": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Defesas/peitoral-humanoide.png",
+    "description": ""
+  },
+  "roubo-da-inveja": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Defesas/roubo-da-inveja.png",
+    "description": ""
+  },
+  "mascara-do-castigo": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Defesas/mascara-do-castigo.png",
+    "description": ""
+  },
+  "mão-foguenta": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Defesas/mão-foguenta.png",
+    "description": ""
+  },
+  "núvem-de-azar": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Defesas/núvem-de-azar.png",
+    "description": ""
+  },
+  "escudo-espelhar-certo": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Defesas/escudo-espelhar-certo.png",
+    "description": ""
+  },
+  "trage-do-rei-da-floresta": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Defesas/trage-do-rei-da-floresta.png",
+    "description": ""
+  },
+  "fresco-defensor": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Defesas/fresco-defensor.png",
+    "description": ""
+  },
+  "muralhas-dos-ceus-certa": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Defesas/muralhas-dos-ceus-certa.png",
+    "description": ""
+  },
+  "roupão-divino": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Defesas/roupão-divino.png",
+    "description": ""
+  },
+  "coroa-da-guerra": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Defesas/coroa-da-guerra.png",
+    "description": ""
+  },
+  "anel-de-mana": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Defesas/anel-de-mana.png",
+    "description": ""
+  },
+  "defesa-de-aço": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Defesas/defesa-de-aço.png",
+    "description": ""
+  },
+  "mutiplicar": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Defesas/mutiplicar.png",
+    "description": ""
+  },
+  "pernas-de-aço": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Defesas/pernas-de-aço.png",
+    "description": ""
+  },
+  "bone-humanoide": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Defesas/bone-humanoide.png",
+    "description": ""
+  },
+  "ceus": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Defesas/ceus.png",
+    "description": ""
+  },
+  "luva-do-receba": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Defesas/luva-do-receba.png",
+    "description": ""
+  },
+  "roupas-picantes": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Defesas/roupas-picantes.png",
+    "description": ""
+  },
+  "elmo-humanoide": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Defesas/elmo-humanoide.png",
+    "description": ""
+  },
+  "escudo-infernal": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Defesas/escudo-infernal.png",
+    "description": ""
+  },
+  "manto-glacial": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Defesas/manto-glacial.png",
+    "description": ""
+  },
+  "assas-dos-anjos": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Baralho diverso/assas-dos-anjos.png",
+    "description": ""
+  },
+  "sangue-divino": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Baralho diverso/sangue-divino.png",
+    "description": ""
+  },
+  "saco-da-ganancia": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Baralho diverso/saco-da-ganancia.png",
+    "description": ""
+  },
+  "afortunado": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Baralho diverso/afortunado.png",
+    "description": ""
+  },
+  "chave-do-apocalipse": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Baralho diverso/chave-do-apocalipse.png",
+    "description": ""
+  },
+  "vender": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Baralho diverso/vender.png",
+    "description": ""
+  },
+  "mao-de-inveja": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Baralho diverso/mao-de-inveja.png",
+    "description": ""
+  },
+  "sabao-de-petolas-florais": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Baralho diverso/sabao-de-petolas-florais.png",
+    "description": ""
+  },
+  "desconto-divino": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Baralho diverso/desconto-divino.png",
+    "description": ""
+  },
+  "caos-engarrafado": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Baralho diverso/caos-engarrafado.png",
+    "description": ""
+  },
+  "flor-de-maninha": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Baralho diverso/flor-de-maninha.png",
+    "description": ""
+  },
+  "colagem-infinita": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Baralho diverso/colagem-infinita.png",
+    "description": ""
+  },
+  "amuleto-da-vida-eterna": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Baralho diverso/amuleto-da-vida-eterna.png",
+    "description": ""
+  },
+  "renacimento-da-dinvindade": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Baralho diverso/renacimento-da-dinvindade.png",
+    "description": ""
+  },
+  "idolo-de-pano": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Baralho diverso/idolo-de-pano.png",
+    "description": ""
+  },
+  "pequena-fortuna": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Baralho diverso/pequena-fortuna.png",
+    "description": ""
+  },
+  "sangue-humanoide": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Baralho diverso/sangue-humanoide.png",
+    "description": ""
+  },
+  "troca-troca": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Baralho diverso/troca-troca.png",
+    "description": ""
+  },
+  "caixote-florido": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Baralho diverso/caixote-florido.png",
+    "description": ""
+  },
+  "libertacao-do-caos": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Baralho diverso/libertacao-do-caos.png",
+    "description": ""
+  },
+  "concha-marinha": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Baralho diverso/concha-marinha.png",
+    "description": ""
+  },
+  "limpador-de-poder": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Baralho diverso/limpador-de-poder.png",
+    "description": ""
+  },
+  "floriado": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Baralho diverso/floriado.png",
+    "description": ""
+  },
+  "mao-do-pecado": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Baralho diverso/mao-do-pecado.png",
+    "description": ""
+  },
+  "sangue-semideus": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Baralho diverso/sangue-semideus.png",
+    "description": ""
+  },
+  "comprar": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Baralho diverso/comprar.png",
+    "description": ""
+  },
+  "terra-prometida": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Adicionais/terra-prometida.png",
+    "description": ""
+  },
+  "pena-de-ouro": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Adicionais/pena-de-ouro.png",
+    "description": ""
+  },
+  "ferro": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Adicionais/ferro.png",
+    "description": ""
+  },
+  "tum-tum-tum-temporal": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Adicionais/tum-tum-tum-temporal.png",
+    "description": ""
+  },
+  "pedaco-de-luz": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Adicionais/pedaco-de-luz.png",
+    "description": ""
+  },
+  "boneco-vodu": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Adicionais/boneco-vodu.png",
+    "description": ""
+  },
+  "amuleto-divino": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Adicionais/amuleto-divino.png",
+    "description": ""
+  },
+  "cacos-de-vidro": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Adicionais/cacos-de-vidro.png",
+    "description": ""
+  },
+  "magma-derretido": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Adicionais/magma-derretido.png",
+    "description": ""
+  },
+  "flecha-negra": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Adicionais/flecha-negra.png",
+    "description": ""
+  },
+  "vara-cristalina": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Adicionais/vara-cristalina.png",
+    "description": ""
+  },
+  "dna": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Adicionais/dna.png",
+    "description": ""
+  },
+  "estaca": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Adicionais/estaca.png",
+    "description": ""
+  },
+  "boneco-mimico": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Adicionais/boneco-mimico.png",
+    "description": ""
+  },
+  "pena-de-ferro": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Adicionais/pena-de-ferro.png",
+    "description": ""
+  },
+  "arvore-do-mal": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Adicionais/arvore-do-mal.png",
+    "description": ""
+  },
+  "amolador-de-pedra": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Adicionais/amolador-de-pedra.png",
+    "description": ""
+  },
+  "lança-de-pedrafix": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Armas/lança-de-pedrafix.png",
+    "description": ""
+  },
+  "veneno-matador-de-deuses": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Armas/veneno-matador-de-deuses.png",
+    "description": ""
+  },
+  "sugada-mortal": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Armas/sugada-mortal.png",
+    "description": ""
+  },
+  "porrete-de-vidro": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Armas/porrete-de-vidro.png",
+    "description": ""
+  },
+  "espada-de-vidral": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Armas/espada-de-vidral.png",
+    "description": ""
+  },
+  "chicotada-gelida": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Armas/chicotada-gelida.png",
+    "description": ""
+  },
+  "castigo-infernal": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Armas/castigo-infernal.png",
+    "description": ""
+  },
+  "bola-de-fogo": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Armas/bola-de-fogo.png",
+    "description": ""
+  },
+  "criar-lama": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Armas/criar-lama.png",
+    "description": ""
+  },
+  "bastao-do-ex": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Armas/bastao-do-ex.png",
+    "description": ""
+  },
+  "martelo-inferno": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Armas/martelo-inferno.png",
+    "description": ""
+  },
+  "machado-primario": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Armas/machado-primario.png",
+    "description": ""
+  },
+  "orbe-da-escolha-divina": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Armas/orbe-da-escolha-divina.png",
+    "description": ""
+  },
+  "lança-de-guerra": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Armas/lança-de-guerra.png",
+    "description": ""
+  },
+  "ponta-de-lança": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Armas/ponta-de-lança.png",
+    "description": ""
+  },
+  "adaga-de-judas": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Armas/adaga-de-judas.png",
+    "description": ""
+  },
+  "besta-do-ladrao": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Armas/besta-do-ladrao.png",
+    "description": ""
+  },
+  "martelo-juizo-final-diamante": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Armas/martelo-juizo-final-diamante.png",
+    "description": ""
+  },
+  "espinhos-pedregosos": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Armas/espinhos-pedregosos.png",
+    "description": ""
+  },
+  "espada-do-heroi": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Armas/espada-do-heroi.png",
+    "description": ""
+  },
+  "lança-de-pedra": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Armas/lança-de-pedra.png",
+    "description": ""
+  },
+  "ventania-da-névoa": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Armas/ventania-da-névoa.png",
+    "description": ""
+  },
+  "morte-da-estrela": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Armas/morte-da-estrela.png",
+    "description": ""
+  },
+  "guardiao-da-luz": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Armas/guardiao-da-luz.png",
+    "description": ""
+  },
+  "lanÇa-de-gelo": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Armas/lanÇa-de-gelo.png",
+    "description": ""
+  },
+  "meteoro-gelido": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Armas/meteoro-gelido.png",
+    "description": ""
+  },
+  "lança-de-gelofix": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Armas/lança-de-gelofix.png",
+    "description": ""
+  },
+  "adaga-da-inveja": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Armas/adaga-da-inveja.png",
+    "description": ""
+  },
+  "sol-eletrico": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Armas/sol-eletrico.png",
+    "description": ""
+  },
+  "caimento-dos-anjos": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Armas/caimento-dos-anjos.png",
+    "description": ""
+  },
+  "arco-humanoide": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Armas/arco-humanoide.png",
+    "description": ""
+  },
+  "agulha-da-praga": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Armas/agulha-da-praga.png",
+    "description": ""
+  },
+  "faca-luciferiana": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Armas/faca-luciferiana.png",
+    "description": ""
+  },
+  "lanca-angelical": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Armas/lanca-angelical.png",
+    "description": ""
+  },
+  "porrete-da-injustica": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Armas/porrete-da-injustica.png",
+    "description": ""
+  },
+  "inverno-glacial": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Armas/inverno-glacial.png",
+    "description": ""
+  },
+  "espada-de-trino": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Armas/espada-de-trino.png",
+    "description": ""
+  },
+  "grande-alabarda": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Armas/grande-alabarda.png",
+    "description": ""
+  },
+  "flor-de-sangue": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Armas/flor-de-sangue.png",
+    "description": ""
+  },
+  "cálice-glacial": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Armas/cálice-glacial.png",
+    "description": ""
+  },
+  "boneco-vingativo": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Armas/boneco-vingativo.png",
+    "description": ""
+  },
+  "o-grande-pau-dos-amiguinhos": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Armas/o-grande-pau-dos-amiguinhos.png",
+    "description": ""
+  },
+  "cálice-de-fogo": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Armas/cálice-de-fogo.png",
+    "description": ""
+  },
+  "cristalar-gelonio": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Armas/cristalar-gelonio.png",
+    "description": ""
+  },
+  "socador-de-aco": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Armas/socador-de-aco.png",
+    "description": ""
+  },
+  "martelo-de-prata": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Armas/martelo-de-prata.png",
+    "description": ""
+  },
+  "espinhos-gemedor": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Armas/espinhos-gemedor.png",
+    "description": ""
+  },
+  "aura-de-sansao": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Armas/aura-de-sansao.png",
+    "description": ""
+  },
+  "gemetron": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Armas/gemetron.png",
+    "description": ""
+  },
+  "caimento-do-anjo": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Armas/caimento-do-anjo.png",
+    "description": ""
+  },
+  "lamina-do-olimpo": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Armas/lamina-do-olimpo.png",
+    "description": ""
+  },
+  "estrela-de-aço": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Armas/estrela-de-aço.png",
+    "description": ""
+  },
+  "martelo-de-ouro": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Armas/martelo-de-ouro.png",
+    "description": ""
+  },
+  "adaga-de-ferro": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Armas/adaga-de-ferro.png",
+    "description": ""
+  },
+  "espada-humana": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Armas/espada-humana.png",
+    "description": ""
+  },
+  "foice-do-trabalhador": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Armas/foice-do-trabalhador.png",
+    "description": ""
+  },
+  "pedrado": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Armas/pedrado.png",
+    "description": ""
+  },
+  "linhas-do-tempo": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Armas/linhas-do-tempo.png",
+    "description": ""
+  },
+  "martelo-de-bronze": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Armas/martelo-de-bronze.png",
+    "description": ""
+  },
+  "tidente-do-abismo": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Armas/tidente-do-abismo.png",
+    "description": ""
+  },
+  "foice-do-desvivamento": {
+    "type": "attack",
+    "dano": 1,
+    "elemento": "normal",
+    "Mod": "+",
+    "img": "Armas/foice-do-desvivamento.png",
+    "description": ""
+  }
+}
