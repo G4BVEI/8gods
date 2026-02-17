@@ -183,7 +183,7 @@
 				const opacity = Math.min(1, (1 - z / w) * 1.5);
 				if (sx > -100 && sx < w + 100) {
 					ctx.lineWidth = opacity * 3;
-					ctx.strokeStyle = `rgba(200, 250, 255, ${opacity * Math.min(1, z / 100)})`;
+					ctx.strokeStyle = `#3DF2E0`;
 					ctx.beginPath();
 					ctx.moveTo(ex, ey);
 					ctx.lineTo(sx, sy);
@@ -220,7 +220,7 @@
 		left: 0;
 		width: 100%;
 		height: 100%;
-		background: #000;
+		background: #0b0f14;
 		z-index: -1;
 		pointer-events: none;
 	}
