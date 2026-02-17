@@ -183,7 +183,7 @@
 				const opacity = Math.min(1, (1 - z / w) * 1.5);
 				if (sx > -100 && sx < w + 100) {
 					ctx.lineWidth = opacity * 3;
-					ctx.strokeStyle = `#3DF2E0`;
+					ctx.strokeStyle = `rgba(61, 242, 224, ${opacity * Math.min(1, z / 100)})`;
 					ctx.beginPath();
 					ctx.moveTo(ex, ey);
 					ctx.lineTo(sx, sy);
