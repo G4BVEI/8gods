@@ -3,7 +3,7 @@
 
 	// Props for customization
 	export let starCount = 400;
-	export let nebulaCount = 2;
+	export let nebulaCount = 5;
 	export let speed = 6;
 	export let targetFPS = 60;
 
