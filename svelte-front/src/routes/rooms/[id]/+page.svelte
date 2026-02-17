@@ -3,7 +3,9 @@
 </script>
 
 <!-- Example 1: Full viewport background -->
-<Space />
+<div class="m-w-[80dvw]">
+	<Space />
+</div>
 
 <div style="width: 100vw; height: 200vh;"></div>
 

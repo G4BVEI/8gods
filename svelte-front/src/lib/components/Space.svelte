@@ -211,17 +211,7 @@
 	});
 </script>
 
-<canvas bind:this={canvas}></canvas>
-
-<style>
-	canvas {
-		position: fixed;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		background: #0b0f14;
-		z-index: -1;
-		pointer-events: none;
-	}
-</style>
+<canvas
+	bind:this={canvas}
+	class="pointer-events-none fixed top-0 left-0 -z-1 h-full w-full bg-[#0b0f14]"
+></canvas>
