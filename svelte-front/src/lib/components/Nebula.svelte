@@ -47,7 +47,7 @@
 
       float time2 = iTime * 0.8;
       // Speed kept slightly higher for that "Space" feel
-      float speed = 0.03 * cos(time2 * 0.02);
+      float speed = 0.4 * cos(0.01 * 0.02);
 
       float a_xz = 0.9;
       float a_yz = -.6;
