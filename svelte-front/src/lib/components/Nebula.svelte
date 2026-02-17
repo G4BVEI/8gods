@@ -6,35 +6,35 @@
 	let renderer, scene, camera, material;
 	let frameId;
 
-	// Your provided Shadertoy code, ported for Three.js
 	const fragmentShader = `
     uniform vec3 iResolution;
     uniform float iTime;
 
-    #define iterations 4
-    #define formuparam2 0.89
-    #define volsteps 10
-    #define stepsize 0.190
-    #define zoom 3.900
-    #define tile 0.450
-    #define speed2 0.010
-    #define brightness 0.2
+    // --- Arcane Tweaks ---
+    #define iterations 8
+    #define formuparam 0.85
+    #define volsteps 13
+    #define stepsize 0.120
+
+    #define zoom 2.500
+    #define tile 0.850
+    #define brightness 0.0015
     #define darkmatter 0.400
-    #define distfading 0.560
-    #define saturation 0.400
-    #define transverseSpeed 1.1
-    #define cloud 0.2
+    #define distfading 0.650
+    #define saturation 0.850
+
+    #define cloud 0.15
 
     float field(in vec3 p) {
-      float strength = 7.0 + 0.03 * log(1.e-6 + fract(sin(iTime) * 4373.11));
+      float strength = 7.0 + 0.05 * sin(iTime * 2.0);
       float accum = 0.;
       float prev = 0.;
       float tw = 0.;
       for (int i = 0; i < 6; ++i) {
         float mag = dot(p, p);
-        p = abs(p) / mag + vec3(-.5, -.8 + 0.1 * sin(iTime * 0.2 + 2.0), -1.1 + 0.3 * cos(iTime * 0.15));
-        float w = exp(-float(i) / 7.);
-        accum += w * exp(-strength * pow(abs(mag - prev), 2.3));
+        p = abs(p) / mag + vec3(-.5, -.8 + 0.1 * sin(iTime * 0.1 + 2.0), -1.1 + 0.3 * cos(iTime * 0.15));
+        float w = exp(-float(i) / 7.2);
+        accum += w * exp(-strength * pow(abs(mag - prev), 2.2));
         tw += w;
         prev = mag;
       }
@@ -45,15 +45,13 @@
       vec2 uv2 = 2. * gl_FragCoord.xy / iResolution.xy - 1.;
       vec2 uvs = uv2 * iResolution.xy / max(iResolution.x, iResolution.y);
 
-      float time2 = iTime;
-      float speed = 0.01 * cos(time2*0.02 + 3.1415926/4.0);
-      float formuparam = formuparam2;
+      float time2 = iTime * 0.8;
+      // Speed kept slightly higher for that "Space" feel
+      float speed = 0.03 * cos(time2 * 0.02);
 
-      // ROTATION CONTROL
-      // Change the 0.04 to 0.0 if you want to stop the "sideways" roll
       float a_xz = 0.9;
       float a_yz = -.6;
-      float a_xy = 0.9 + iTime * 0.04;
+      float a_xy = 0.5 + iTime * 0.01;
 
       mat2 rot_xz = mat2(cos(a_xz),sin(a_xz),-sin(a_xz),cos(a_xz));
       mat2 rot_yz = mat2(cos(a_yz),sin(a_yz),-sin(a_yz),cos(a_yz));
@@ -61,13 +59,11 @@
 
       vec3 dir = vec3(uvs * zoom, 1.);
       vec3 from = vec3(0.0, 0.0, 0.0);
-      from.x -= 5.0 * (0.5);
-      from.y -= 5.0 * (0.5);
-
       vec3 forward = vec3(0.,0.,1.);
-      from.x += transverseSpeed*(1.0)*cos(0.01*iTime) + 0.001*iTime;
-      from.y += transverseSpeed*(1.0)*sin(0.01*iTime) + 0.001*iTime;
-      from.z += 0.003*iTime;
+
+      from.x += 1.2 * cos(0.01 * iTime);
+      from.y += 1.2 * sin(0.01 * iTime);
+      from.z += 0.003 * iTime;
 
       dir.xy *= rot_xy;
       forward.xy *= rot_xy;
@@ -93,7 +89,7 @@
 
       for (int r=0; r<volsteps; r++) {
         vec3 p2 = from + (s + zoffset) * dir;
-        vec3 p3 = (from + (s3 + zoffset) * dir ) * (1.9 / zoom);
+        vec3 p3 = (from + (s3 + zoffset) * dir ) * (1.5 / zoom);
 
         p2 = abs(vec3(tile) - mod(p2, vec3(tile * 2.)));
         p3 = abs(vec3(tile) - mod(p3, vec3(tile * 2.)));
@@ -103,20 +99,24 @@
         for (int i=0; i<iterations; i++) {
           p2 = abs(p2) / dot(p2, p2) - formuparam;
           float D = abs(length(p2) - pa);
-          if (i > 2) a += i > 7 ? min( 12., D) : D;
+          if (i > 3) a += D;
           pa = length(p2);
         }
 
         a *= a * a;
         float s1 = s + zoffset;
-        float fade = pow(distfading, max(0., float(r) - sampleShift));
+
+        // --- DISTANCE CULLING LOGIC ---
+        // We create a mask that goes from 1.0 (close) to 0.0 (far)
+        float distMask = pow(1.0 - (float(r) / float(volsteps)), 2.5);
+        float fade = pow(distfading, max(0., float(r) - sampleShift)) * distMask;
 
         v += fade;
         if( r == 0 ) fade *= (1. - (sampleShift));
-        if( r == volsteps-1 ) fade *= sampleShift;
+        if( r == volsteps-1 ) fade *= 0.0; // Force distant step to 0
 
-        v += vec3(s1, s1*s1, s1*s1*s1*s1) * a * brightness * fade;
-        backCol2 += mix(.4, 1., 1.0) * vec3(0.20 * t3 * t3 * t3, 0.4 * t3 * t3, t3 * 0.7) * fade;
+        v += vec3(s1 * 0.5, s1 * s1, s1 * s1 * s1) * a * brightness * fade;
+        backCol2 += mix(.3, 1., 0.8) * vec3(0.4 * t3 * t3, 0.1 * t3, t3 * 0.8) * fade;
 
         s += stepsize;
         s3 += stepsize;
@@ -126,7 +126,8 @@
       vec4 forCol2 = vec4(v * .01, 1.);
       backCol2 *= cloud;
 
-      gl_FragColor = forCol2 + vec4(backCol2, 1.0);
+      vec3 finalCol = forCol2.rgb + backCol2;
+      gl_FragColor = vec4(finalCol, 1.0);
     }
   `;
 
