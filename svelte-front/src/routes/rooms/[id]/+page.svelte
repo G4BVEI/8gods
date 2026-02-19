@@ -6,13 +6,13 @@
 </script>
 
 <div class="flex h-dvh overflow-hidden">
-	<div class="left-0 h-dvh w-[35dvw] bg-gray-600">
+	<div class="left-0 h-dvh w-[30dvw] bg-gray-600">
 		<button onclick={() => banana++}>banana</button>
-	</div>
-	<div class="right-0 h-dvh w-[65dvw]">
+	</div>  
+	<div class="right-0 h-dvh w-[70dvw]">
 		{#if banana % 3 == 0}
 			<Nebula />
-		{:else if banana % 3 == 1}
+		{:else if banana % 3 == 1}  
 			<CyanNebula />
 		{:else}
 			<NeonNebula />

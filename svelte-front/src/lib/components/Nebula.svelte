@@ -47,7 +47,7 @@
         vec2 uvs = uv2 * iResolution.xy / max(iResolution.x, iResolution.y);
 
         float time2 = iTime * 0.8;
-        float speed = 0.4 * cos(0.01 * 0.02);
+        float speed = 0.9 * cos(0.01 * 0.02);
 
         float a_xz = 0.9;
         float a_yz = -.6;
@@ -106,10 +106,10 @@
             a *= a * a;
             float s1 = s + zoffset;
 
-            float distMask = pow(1.0 - (float(r) / float(volsteps)), 2.5);
+            float distMask = pow(1.0 - (float(r) / float(volsteps)), 0.5);
             float fade = pow(distfading, max(0., float(r) - sampleShift)) * distMask;
 
-            v += fade;
+
             if( r == 0 ) fade *= (1. - (sampleShift));
             if( r == volsteps-1 ) fade *= 0.0;
 

@@ -1,5 +1,5 @@
 <script>
-	import Space from '$lib/components/Space.svelte';
+	import CyanNebula from '$lib/components/CyanNebula.svelte';
 	const rooms = [
 		{
 			id: 1,
@@ -23,7 +23,7 @@
 </script>
 
 <!-- Just drop it in once - it becomes the page background -->
-<Space />
+<div class="fixed -z-1 h-dvh w-dvw"><CyanNebula /></div>
 
 <!-- Your normal scrollable content -->
 <main>

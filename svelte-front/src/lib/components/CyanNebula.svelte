@@ -106,10 +106,10 @@
             a *= a * a;
             float s1 = s + zoffset;
 
-            float distMask = pow(1.0 - (float(r) / float(volsteps)), 2.5);
+            float distMask = pow(1.0 - (float(r) / float(volsteps)), 0.5);
             float fade = pow(distfading, max(0., float(r) - sampleShift)) * distMask;
 
-            v += fade;
+
             if( r == 0 ) fade *= (1. - (sampleShift));
             if( r == volsteps-1 ) fade *= 0.0;
 
