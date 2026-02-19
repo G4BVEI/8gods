@@ -125,7 +125,12 @@
         backCol2 *= cloud;
 
         vec3 finalCol = forCol2.rgb + backCol2;
-        gl_FragColor = vec4(finalCol, 1.0);
+
+        // convert brightness to a cyan-tinted output
+        float intensity = dot(finalCol, vec3(0.333)); // grayscale intensity
+        vec3 cyan = vec3(0.0, 1.0, 1.0);
+
+        gl_FragColor = vec4(cyan * intensity * 2.0, 1.0);
         }
     `;
 
