@@ -1,21 +1,13 @@
 <script>
-	import CyanNebula from '$lib/components/CyanNebula.svelte';
-	import Nebula from '$lib/components/Nebula.svelte';
-	import NeonNebula from '$lib/components/NeonNebula.svelte';
-	let banana = $state(0);
+	import ShaderRunner from '$lib/engine/ShaderRunner.svelte';
+	let banana = '';
 </script>
 
 <div class="flex h-dvh overflow-hidden">
 	<div class="left-0 h-dvh w-[30dvw] bg-gray-600">
 		<button onclick={() => banana++}>banana</button>
-	</div>  
+	</div>
 	<div class="right-0 h-dvh w-[70dvw]">
-		{#if banana % 3 == 0}
-			<Nebula />
-		{:else if banana % 3 == 1}  
-			<CyanNebula />
-		{:else}
-			<NeonNebula />
-		{/if}
+		<ShaderRunner />
 	</div>
 </div>

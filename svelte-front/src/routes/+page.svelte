@@ -1,5 +1,5 @@
 <script>
-	import OldSpace from '$lib/components/Nebula.svelte';
+	import ShaderRunner from '$lib/engine/ShaderRunner.svelte';
 </script>
 
-<OldSpace />
+<ShaderRunner />

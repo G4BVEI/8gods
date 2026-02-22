@@ -1,5 +1,5 @@
 <script>
-	import CyanNebula from '$lib/components/CyanNebula.svelte';
+	import ShaderRunner from '$lib/engine/ShaderRunner.svelte';
 	const rooms = [
 		{
 			id: 1,
@@ -23,7 +23,7 @@
 </script>
 
 <!-- Just drop it in once - it becomes the page background -->
-<div class="fixed -z-1 h-dvh w-dvw"><CyanNebula /></div>
+<div class="fixed -z-1 h-dvh w-dvw"><ShaderRunner /></div>
 
 <!-- Your normal scrollable content -->
 <main>
