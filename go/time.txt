@@ -1,0 +1,61 @@
+this document is about the round/turn manipulation and ordering in our game
+so well have players in a list(slice)
+var players = []Player{}
+then we randomize the order and create a map
+playerOrder := map[string]int{
+    id: PointerToPlayer,
+}
+so well have the order theyll play, to simplify ill represent it each item in said map just as a letter
+so like [A,B,C,D]
+and well have a secondary list(slice) which is the real timeline (which relies on the playerOrder still)
+while undisturbed, the list will just contain whos playing
+like [A] (assuming its A's turn)
+supposedly if A plays a card that jumps B we will iterate till we get the player after B then remove him
+so [A] -> [A,B,C] -> [A,C] (the middle point wont really happen but its a good way to explain the code)
+A played so we remove him from the list so we get [C]
+lets say now that C wants to give 1 more turn with B through an item
+so our code will iterate until it gets to be and give him some turns
+[C] -> [C,D,A,B,B]
+then C will leave his turn
+lets say now D wants to invert the order permanently(or until someone elses messes with it),
+so will have to invert the main list from
+[A,B,C,D] to [D,C,B,A]
+and our secondary list that from
+[D,A,B,B] to [B,B,A](we removed D)
+but wait shouldnt C be playing after D then? yeah we've hit our first issue,
+the secondary list should have all players at the time its inverted if it is bigger than one
+so after inverting we do
+[D,A,B,B] -> [A,B,B] -> [C,A,B,B](we added C at the start)
+ok alright problem solved right? right?
+well not exactly,  lets suppose now that C and A play something
+its now B's turn ([B,B])
+lets say he has a card that jumps someone after everyone else has played 2 times
+and he uses it in A
+so we get the order
+[B,B] -> [B, A, D, C, B, A, D, C, B, A, D] -> [B, A, D, C, B, A, D, C, B, D](no a the third time around)
+and he still has a turn so lets say he inverts the order
+[B, A, D, C, B, A, D, C, B, D] -> [B, A, D, C, B, A, D, C, B, D, C](we have to append until C as he plays after B in the new order)4
+then now [B, A, D, C, B, A, D, C, B, D, C] -> [C, D, B, C, D, A, B, C, D, A, B]
+but we see that A now has been jumped before the 2 rounds pass (round= everyone has played once)
+so instead we have to invert in batches
+how do we separate you say?
+we separate each round and invert them individually, whats a round you say?
+when any player repeat in a non-sequential way we have a batch or a round
+so [A, B, C, A ,C] can be broken into [A, B, C] and [A, C]
+also in other manners
+like [A, B, B, C, B] gets broken into [A, B, B, C] and [B]
+we do have a problem here if were inverting cause [B] isnt a complete round as hes alone (unless everyone else got skipped [but if people had been skipped we'd be informed of whos the next after the skipped people so that isnt such a case])
+so
+[B, A, D, C, B, A, D, C, B, D, C]
+[B, A, D, C](B repeats right after)
+[B, A, D, C](B repeats right after)
+[B, D, C](and B repeats right after)
+now we invert one by one
+[B, A, D, C] -> [C, D, A, B]
+[B, A, D, C] -> [C, D, A, B]
+[B, D, C] -> [C, D, B](third time around without a)
+and them we put it all together one at a time so
+[[C, D, A, B][C, D, A, B][C, D, B]]
+and pass to the order
+[C, D, A, B, C, D, A, B C, D, B]]
+this way around as we had everyone we didnt hit the necessity of augmenting the list as in the anterior example

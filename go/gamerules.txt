@@ -1,0 +1,11 @@
+No inicio do jogo os jogadores são assignados uma ordem de jogo aleatória e ganham 4 cartas de defesa e 4 cartas de ataque, totalizando 8 cartas.
+No início de cada rodada uma carta do tipo ataque, milagre ou consumivel deve ser usada, opcionalmente o jogador pode comprar uma carta do baralho ou descartar uma carta no buraco negro.
+Cartas do tipo ataque com o modificador + podem ser estacadas enquanto cartas de ataque normais podem apenas ser a primeira carta de ataque simultanea(ou a unica)
+Ao receber o ataque é possivel rebater, refletir, ou defender, sempre é possivel jogar mais do que uma carta de defesa por vez, certas cartas de defesa aplicam efeitos no atacante ou no defendente.
+Cartas com modificador % podem ter efeitos diferentes baseado em probabilidade
+Cartas tem raridades e preços diferentes
+Cartas do tipo especial não tem um comportamento padrão
+
+Loja:
+Sempre que um jogador é atacado diretamente, ele pode comprar um item na loja enquanto ainda está no momento de defesa.
+Ataques em área não contam, já que dois ou mais jogadores poderiam comprar ao mesmo tempo

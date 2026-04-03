@@ -1,0 +1,20 @@
+so we have a round/turn based game
+we have players in a list
+a map for order of play which is sorted
+for simplifing reasons lets suppose our order is [A,B,C,D]
+which refer to player 1 2 3 and 4
+we have current player [X] like [A]
+besides the order we have a list called timeline which register temporary alterations on any turn
+So skip C in the current turn
+we add has been skipped to C effects queue
+C.Effects append(Effects, Skipped)
+[[]]
+if we skip him well in the future, like 2 rounds from now we added it into the timeline instead
+[[][][HasBeenSkipped(C)]]
+and whatever more has been true
+we also have a list for any permanent effects
+[timeHasBeenInversed=true, permanentDoubleDamage]
+so any scheduled effects follow the rounds timeline
+and permanent have their own place,
+anytime all players have been iterated on we consider a round pass
+the timeline only registers when effects get added to the effect list not how, as each effect can have its own triggers or priority system

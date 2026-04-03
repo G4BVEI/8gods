@@ -1,0 +1,29 @@
+so we have a round/turn based game
+we have players in a list
+a map for order of play which is sorted
+for simplifing reasons lets suppose our order is [A,B,C,D]
+which refer to player 1 2 3 and 4
+besides the order we have a list called timeline which relies on the order
+when the game starts the players get sorted and put into order
+timeline gets populated based off order so
+order = [[A,B,C,D]]
+when A plays it'll turn into [[B,C,D]]
+at the end of D's turn itll be repopulated [[A,B,C,D]]
+why you ask?
+we have a lot of turn manipulation going on
+so lets say our current timeline is [[A,B,C,D]]
+and a plays a card that skips C
+we'd have [[B,D]]
+and at the end of D wed repopulate
+but lets say the card skips C one round in the future
+timelines goes like theres no second round so it pulls it [[B,C,D][A,B,C,D]] and converts it [[B,C,D][A,B,D]]
+this already solves a lot of what well be doing
+but what B now inverts the game order permanently? well we invert the order but what about the rounds?
+we have [[C,D]][[A,B,D]](B already played and c is skipped in the future) the way to do it is to invert the rounds individually
+but if we just invert them individually well get [[D,C]][[D,B,A]]
+which is fine for the second turn
+but as of now after B the next player is A in the inverted order but we have [D,C] for the next turn
+so we have to sort this instead going to the next player all the way to the first of the next round
+so as the next round is [D,B,A] we gotta go from A-D
+which happens instantly as in the inverted order [D,C,B,A] D is straight after A so well skip D and just add A to the current round
+we get [[A]][[D,B,A]]
