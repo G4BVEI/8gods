@@ -2,10 +2,10 @@ Base
     There can only be up to 8 players in a room
     The objective is to be the last remaining player
     All cards have rarity and price
-    Theres 4 card types including attack, miracles, defense and consumables.
+    Theres 4 card types including attack, miracles, defense, consumables and special cards(revive on death for example)
     There are 2 decks
         Attack deck: includes attacks
-        Secondary deck: which include everything from heal, defense, miracles and consumables
+        Secondary deck: which include everything else
     The game operates in turns and rounds
         Whenever a player plays we call a turn
         When all players have played(unless skipped, then we jump them) we consider a round
@@ -25,6 +25,8 @@ Base
     Some cards have delayed effects
         Ex: A player can be skipped 2 rounds from now
     Some cards have permanent effects in the game, and can vary on triggers
+    Whenever a player turn exceeds 35 seconds the player gets kicked
+    Anytime a player disconnects a bot enter in his places temporarily
 Gameloop
     At the start players are assigned a random order of play, they start with 40 life, 10 mana and 15 money and receive 4 attack cards and 4 secondary cards
     The game follows the play order
@@ -47,3 +49,22 @@ Attack
     Whenever a player has been damaged by an non Aoe-attack he can buy an store item instantly
 Store
     Theres a store that at all times(unless disturbed) will have 2 cards at display and the card can be bought be the card's normal price(unless disturbed)
+Curses
+    Diseases
+        Diseases get worse naturally, with 5% chance per turn to get worse.
+            Cold
+                1 damage on end of turn (Fever if worsened)
+            Fever
+                2 damage on end of turn (Hell if worsened)
+            Hell
+                5 damage on end of turn (Heaven if worsened)
+            Heaven
+                HP+5 on end of turn (HP0 if worsened)
+        Fog
+            "Surroundings become hidden"(always attacks ramdomly, cant see oponents status, cant see whats being played unless its an direct attack)
+        Flash
+            "Only one artifact can be used for defense"(self explanatory)
+        Dream
+            "Given artifacts look false by 50% chance"(other png's/description appear)
+        Dark Cloud
+            "Received %ATK attacks hit certainly"(self explanat)

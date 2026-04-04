@@ -10,7 +10,7 @@ AllRooms struct {
 }
 Room struct{
 	Title string//will be ****** for SecretRooms
-	Players []Player
+	Players []*Player
 	Active bool
 	Gamestate Gamestate
 }
@@ -22,15 +22,23 @@ Gamestate struct{
 	//A round is defined by a turn of each player(on normal conditions) so this array helps us maintain stuff going
 	//this also permits for completely ramdom play order without unbalancing the game too much, (we only pool from who's not played already)
 	// not that fairness is the main component but still
-	EffectTimeline []map[Trigger]Action
-	//each [] as one round, for example [][]["OnRoundStart" : "AttributeEffect(HasBeenSkipped, SomePlayer))"]
-	// so SomePlayer will be skipped 2 turns from now
-	PermanentTriggers map[Trigger]Action
-	// example OnAttackEvaluation: DamageMultiply(*, 2)) doubles damage
+	EffectTimeline [][]TriggerAction
+	//acts as a sliding window, index 0 always represent the current round
+	//each [] as one round, for example [][][TriggerAction:["OnRoundStart" : "AttributeEffect(HasBeenSkipped) Source: *player Target *OtherPlayer]"]
+	// so Player skipped SomePlayer 2 turns from now
+	PermanentTriggers []TriggerAction
+	// example TriggerAction[Trigger: OnAttackEvaluation, Action: DamageMultiply(*, 2)] doubles damage
 	// or OnAttackEvaluation : ConvertElement(fire)
 	PermanentEffects []Effect
 	//like GameOrder(Shuffle) or Invert
 	// maybe could be moved to above list
+	ApocalipseHasStarted bool
+}
+TriggerAction struct{
+	Trigger Trigger
+	Action Action
+	Source *Player
+	Target *Player//possibly will be an target type futurely like solo(one player, could include self) everyenemy(self explanatory) everyone(includes self)
 }
 Player struct {
 	Websocket *Websocket
@@ -39,27 +47,41 @@ Player struct {
 	Hand []Card
 	ActiveEffects []Effect
 }
-AttackCard struct {
-	StackBase bool // can be the first attack card to be played, eg a 2x damage card shouldnt do so
-	StackTop bool // can be stacked on top of other cards, only cards with extra effects should do so
-	Attack Attack // the attack itself
-	Triggers map[Trigger]Action// a map of all the effects with its triggers so we can mantain this all more easily and make a priority list
+Card struct {
+	Id int
+	Name string
+	Actions[]TriggerAction
+	Tags[]CardTag
 }
-ProbAttackCard struct {
-	StackBase bool // can be the first attack card to be played, eg a 2x damage card shouldnt do so
-	StackTop bool // can be stacked on top of other cards, only cards with extra effects should do so
+type CardTag int
+const (
+	TagAttack CardTag = iota
+	TagDefense
+	TagMiracle
+	TagConsumable
+	TagSpecial
+)
+AttackType struct {
+	StackBase bool // can be the first attack card to be played, eg a 2x damage card shouldnt do so whilst a +1 still could
+	StackTop bool // can be stacked on top of other cards, only cards with extra effects should do so like +5 or 3x
+	Damage int // very simple attack object internals 0
+	Element Element//self explanatory
+	Triggers []TriggerAction// a list of secondary stuff the attack may do
+}
+DefenseType struct{// defense types always stack
+	DamageDefended int
+	Element Element//determines what it can or cant defend
+}
+ProbAttackType struct {
 	Outcomes []Outcome // defines all the possibilities that can from that card
-	//passar função outcome ao inves de outcomes array?
 }
 Outcome struct {
-	Probabily int //prob this effect does get passed
-	Attack Attack // the attack itself(next struct)
-	Triggers map[Trigger]Action// a map of all the effects with its triggers so we can mantain this all more easily and make a priority list
-}
-Attack struct {
-	Damage int // very simple attack object internals
+	Probabily int //prob this outcome comes to realization
+	Damage int // very simple attack object internals 0
 	Element Element
+	Triggers []TriggerAction// all the secondary stuff it can do(primary on a lot of cases)
 }
+
 Trigger struct{
 	any
 }
@@ -75,8 +97,8 @@ Websocket struct{
 Element struct{
 	any
 }
-FightPlayer interface {
-   Hit([]AttackCard) int
+FightPlayer interface {//premature interface just for basic thinkihg
+   Hit([]Card) int
    TakeDamage(*Player int) int
    GetInfo(*Player) (string, int)
    IsDeath(*Player) bool
