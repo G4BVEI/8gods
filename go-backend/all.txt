@@ -1,7 +1,7 @@
 Base
     There can only be up to 8 players in a room
     The objective is to be the last remaining player
-    All cards have rarity and price
+    All cards have rarity and price (both integers)
     Theres 4 card types including attack, miracles, defense, consumables and special cards(revive on death for example)
     There are 2 decks
         Attack deck: includes attacks
@@ -9,18 +9,19 @@ Base
     The game operates in turns and rounds
         Whenever a player plays we call a turn
         When all players have played(unless skipped, then we jump them) we consider a round
-    Any cards can have extra behaviours and be more than one type of card at once
+    Any cards(except miracles) can have extra behaviours and be more than one type of card at once
     Attacks are element based
         normal = you can defend with anything
         darkness = you can defend with anything(but it instakills you if you dont defend 100% of it)
         water = you can only defend with fire
         fire = you can only defend with water
-        rock = you can only defend with wood
-        wood = you can only defend with rock
-        light = you cant defend(you can sometimes but you need to be lucky with your cards)
+        ground = you can only defend with plant
+        plant = you can only defend with ground
+        light = you can only defend with light
     Defense cards can have element also as stated previously
     Miracle cards consume mana and range behaviour
-    Consumables can range from all sorts of behaviour
+    Miracle cards remain on the users hand, and can be seem by other players(after they're played)
+    Consumables can range from all sorts of behaviour(but generally they heal)
     Some cards can alter the flux of the game temporarily or permanently as a player being skipped or all players being reshuffled
     Some cards have delayed effects
         Ex: A player can be skipped 2 rounds from now
@@ -31,14 +32,17 @@ Gameloop
     At the start players are assigned a random order of play, they start with 40 life, 10 mana and 15 money and receive 4 attack cards and 4 secondary cards
     The game follows the play order
     At the start of each turn a card of the following types must be used: attack, miracle or consumable, optionally the player can discard a card of his own to buy a new one
+    Any card can be used on anyone (attack self, heal enemy)
+    At the end of a turn the player should pick his cards from which deck he chooses (a popup is given)
 Attack
     Simple attack cards dont stack
     Cards with an + at the start can be played alone or in top of other attack cards
-    Some attacks can be AoE and those dont stack
-    If diferent elements get stacked the stack will neutralize or turn into the lesser
+    Some attacks can be AoE and those never stack, AoE cards tend to hit on probability(card can miss everyone and hit 1 person only and so on)
+    If different elements get stacked the stack will neutralize or turn into the lesser
         light + (any element besides darkness) = element
-        element(non-light) + element(non-light) = normal
+        element x(non-light) + element y(non-light) = normal
         light + dark = normal
+        element x + element x = element x
     After an attack the attacked player gets a "defense turn" in which he can swing back, reflect, or defend the attack
     Swing backs and reflect cards cant be stacked
     Swings make the attack go to a random player
@@ -46,9 +50,9 @@ Attack
     Defense cards can always stack(besides if the attacked has debuffs)
     Certain defense cards can apply effects that vary target if the attacked has been hit(ex: 50% damage back, or transform the damage in mana)
     Some attacks are dependant on probability and can have multiple probable effects
-    Whenever a player has been damaged by an non Aoe-attack he can buy an store item instantly
+    Whenever a player has been damaged by an non AoE-attack he can buy an store item instantly
 Store
-    Theres a store that at all times(unless disturbed) will have 2 cards at display and the card can be bought be the card's normal price(unless disturbed)
+    Theres a store that at all times(unless affected by a card) will have 2 cards at display and the card can be bought be the card's normal price(unless affected by a card)
 Curses
     Diseases
         Diseases get worse naturally, with 5% chance per turn to get worse.
@@ -63,8 +67,8 @@ Curses
         Fog
             "Surroundings become hidden"(always attacks ramdomly, cant see oponents status, cant see whats being played unless its an direct attack)
         Flash
-            "Only one artifact can be used for defense"(self explanatory)
+            "Only one defense card can be used for defense"(self explanatory)
         Dream
-            "Given artifacts look false by 50% chance"(other png's/description appear)
-        Dark Cloud
+            "Given artifacts look false by 50% chance"(the cards in the players hand only get revealed after played)
+        Unluck
             "Received %ATK attacks hit certainly"(self explanat)

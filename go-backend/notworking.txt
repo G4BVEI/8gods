@@ -1,0 +1,36 @@
+
+termino-da-criacao acts as a permanent trigger which adds the card at the attackevaluation
+
+tempo-relativo - extra turns are added within Player.StatusEffects
+
+bomba-do-destino -> possivelmente sendo armazenado em Player.StatusEffect -> onTurnEnd evoca popup para selecionar o novo portador da bomba
+
+colagem-infinita -> esse ai sei mesmo não tem que ver
+
+boneco-mimico -> pra essa e passado a gente vai fazer um registro de cartas ja jogadas
+
+mao-do-pecado -> bloqueia ataque em andamento se só tiver 1 carta sendo jogada, e pode ser jogada durante o periodo de ataque com outras cartas, se o atacado tiver carta de ataque pega uma aleatoria da mão dele e bota em cima do stack(mesmo se n der pra estacar), se não tiver mão do pecado volta pra mão do atacante
+
+linhas-do-tempo adiciona alvo a mais, sei não mas parece fazivel
+
+troca-troca troca pontos de hp por dinheiro ou mana, dinheiro por hp e assim vai
+
+boneco-vingativo funciona normalmente
+
+espada-de-vidral normalmente tambem
+
+cristalar-gelonio — "causa 10 de água OU reflete milagre". Mesmo caso acima, dual-nature por contexto.
+
+reflexo-do-heroi — "causa 5 neutro OU reflete ataque". Idem.
+
+coroa-da-guerra — normalmente, baseada em turno
+
+aura-de-sansao — "dobra o dano aplicado". É so adicionar uma função de multiplier depois da evaluação
+
+bastao-do-ex — "gasta toda mana e converte em dano dobrado neutro". Dano variável baseado em stat do jogador no momento da jogada. `Damage int` é estático — precisaria de `DamageFormula string` ou uma interface `DamageResolver`.
+
+sacolada-de-dinheiro — mesmo problema, dano = dinheiro atual do jogador.
+
+martelo-juizo-final-diamante`** — "1 de dano neutro, repete 5x". O modelo não tem `RepeatCount int` em `AttackType`.
+
+tum-tum-tum-temporal`** — "+3 de dano neutro, 2x repetido o mesmo ataque". Mesmo problema.
