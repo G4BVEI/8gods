@@ -828,5 +828,11 @@
     "name": "escudo-angelical",
     "img": "Defesas/escudo-angelical.png",
     "description": "Defende 12. Bloqueia milagre"
+  },
+  {
+    "id": "muralhas-dos-ceus-certa",
+    "name": "muralhas-dos-ceus-certa",
+    "img": "Defesas/muralhas-dos-ceus-certa.png",
+    "description": "Bloqueia qualquer dano de planta ou neutro"
   }
 ]

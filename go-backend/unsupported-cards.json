@@ -60,12 +60,6 @@
     "description": "Pegue uma carta aléatoria e troque por uma carta da sua mão"
   },
   {
-    "id": "muralhas-dos-ceus-certa",
-    "name": "muralhas-dos-ceus-certa",
-    "img": "Defesas/muralhas-dos-ceus-certa.png",
-    "description": "Bloqueia qualquer dano de planta ou neutro"
-  },
-  {
     "id": "mao-de-inveja",
     "name": "mao-de-inveja",
     "img": "Baralho diverso/mao-de-inveja.png",
