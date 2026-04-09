@@ -3,49 +3,61 @@ package main
 // ===================== CORE =====================
 
 type (
-	AllRooms struct {
-		Rooms       []*Channel
-		SecretRooms map[string]*Channel //string acting as name
-	}
+	//AllRooms struct {
+	//	Rooms       []*Channel
+	//	SecretRooms map[string]*Channel //string acting as name
+	//}
 	Room struct {
 		Players   []*Player
 		Active    bool
 		Gamestate Gamestate
 	}
 	Gamestate struct {
-		PlayerOrder          []*Player
-		ActivePlayer         *Player
-		HasPlayed            []*Player //if everyone has played we count a round pass
-		CurrentRound         int
-		EffectTimeline       [][]TriggerAction //index 0 always acts as the current round, its an sliding window for delayed card effects
-		PermanentEffects     []Effect          // such as gameorder shuffled/inversed
-		PermanentTriggers    []TriggerAction   // efeitos permanentes de mesa (termino-da-criacao)
-		PlayedCardLog        []int             // registro de todas as cartas jogadas (passado, boneco-mimico)
-		Store                []int             //acting as card id
-		ApocalipseHasStarted bool
+		PlayerOrder []*Player
+		//		ActivePlayer         *Player
+		//		HasPlayed            []*Player //if everyone has played we count a round pass
+		//		CurrentRound         int
+		//		EffectTimeline       [][]TriggerAction //index 0 always acts as the current round, its an sliding window for delayed card effects
+		//		PermanentEffects     []Effect          // such as gameorder shuffled/inversed
+		//		PermanentTriggers    []TriggerAction   // efeitos permanentes de mesa (termino-da-criacao)
+		PlayedCardLog []int // registro de todas as cartas jogadas (passado, boneco-mimico)
+		Store         []int //acting as card id
+		//		ApocalipseHasStarted bool
+		UsedMiracles map[string]int //string as playername, int as cardid
 	}
 )
 
 // ===================== PLAYER =====================
 
 type Player struct {
-	Connection    *Connection
-	Name          string
-	Life          int
-	Money         int
-	Mana          int
-	Hand          map[int]int //int acting as id, tenho q pensar num jeito bão de fazer as carta falsa, if has dream use the value as true card (but dont tell the user)
-	UsedMiracles  []int       // miracles revelados — visíveis a todos após primeiro uso
-	ActiveEffects []StatusEffect
+	Connection *Connection
+
+	Name  string
+	Life  int
+	Money int
+	Mana  int
+	Hand  []HandCard
+	//int acting as id, if has dream use the value as true card
+	// key is for what the player sees value for true card
+	// if value = 0 card is real
+	UsedMiracles   []int // miracles revelados — visíveis a todos após primeiro uso
+	StatusEffects  []StatusEffect
+	ActiveTriggers map[TriggerType][]*Card
 }
 
 // ===================== CARD =====================
+type HandCard struct {
+	Card     Card
+	RealCard Card //if nil(or 0) doesnt exist, only gets checked if the player has the dream effect
+}
 
 type Card struct {
+	Id        int
 	Name      string // besides logging i also dont need it
-	IsMiracle bool   // this defines if the card gets deleted or not after play and if it cost mana to cast
-	Cost      int    //if it is a miracle, price acts as mana cost, else acts as price
-	Rarity    int    // wont be handled on this part but i prob gotta remember it
+	IsMiracle bool
+	Cost      int //if it is a miracle, price acts as mana cost to cast, else acts as buy price
+	Rarity    int // wont be handled on this part but i prob gotta remember it
+	//Tags      map[any]any //defines what the bot sees, and also defines behaviour instead of us preloading the cards
 	// Uma carta pode ter Active + Defense simultaneamente.
 	// O engine resolve qual nature usar baseado na fase do turno:
 	// fase de ataque → Active, fase de defesa → Defense. Special -> passivo
@@ -54,14 +66,33 @@ type Card struct {
 	Special SpecialNature // passivo /permanente, não depende de fase
 }
 
-type ActiveNature struct {
-	any
+// ActiveNature
+type ActiveNature interface {
+	isActive()
 }
-type DefenseNature struct {
-	any
+
+func (AttackType) isActive()     {}
+func (ProbAttackType) isActive() {}
+func (Consumable) isActive()     {}
+
+// DefenseNature
+type DefenseNature interface {
+	isDefense()
 }
-type SpecialNature struct {
-	any
+
+func (DefenseType) isDefense() {}
+func (ReactType) isDefense()   {}
+
+// Special Nature
+type SpecialNature interface {
+	isSpecial()
+}
+
+func (PassiveType) isSpecial() {}
+
+type PassiveType struct {
+	Trigger
+	Action
 }
 
 type UsedMiracle struct {
@@ -70,18 +101,22 @@ type UsedMiracle struct {
 }
 
 type AttackType struct {
-	StackBase    bool // can initiate an attack
-	StackTop     bool // can be played on top of other cards
-	Damage       int
-	DamageSource DamageSource // overrides Damage quando non-nil
+	StackBase bool // can initiate an attack
+	StackTop  bool // can be played on top of other cards
+	Damage    int
+	//	DamageSource DamageSource // overrides Damage quando non-nil
+	//
 	// Multiplicador aplicado após toda a avaliação do stack.
 	// 0 = ignorado, 2.0 = dobra (aura-de-sansao).
-	DamageMultiplier float64
-	Element          Element
+	//
+	//	DamageMultiplier float64
+	//	Element          Element
+	//
 	// Quantas vezes repetir o ataque resolvido após o primeiro hit.
 	// 0 = hit único, 5 = martelo-juizo-final (1 + 5 repetições).
-	RepeatCount int
-	Triggers    []TriggerAction
+	//
+	//	RepeatCount int
+	//	Triggers    []TriggerAction
 } //btw we always use the target type of the target type and repeat count of the base
 
 // DamageSource permite que cartas cujo dano é derivado de um stat do jogador
@@ -111,7 +146,7 @@ type Outcome struct {
 // ===================== CONSUMABLE =====================
 
 type Consumable struct {
-	Actions []ActionInstance
+	Actions []Action
 }
 
 // ===================== DEFENSE =====================
@@ -124,12 +159,12 @@ type Consumable struct {
 
 type DefenseType struct {
 	DamageDefended int
-	Element        Element         // tipo elemental deste card — determina quais ataques ele bloqueia
+	Element                        // tipo elemental deste card — determina quais ataques ele bloqueia
 	Triggers       []TriggerAction // reações após levar dano (pecado-ganacioso, anel-de-mana, destruidor-da-luz)
 }
 
 type ReactType struct {
-	//something here to represent either block, reflect or swingback
+	ReactionType
 	Element Element //what element it is, if null = light
 	//each of the following represent what this reaction applies to
 	Attack     bool // nondeclared = false
@@ -139,48 +174,132 @@ type ReactType struct {
 	Curse      bool // nondeclared = false
 }
 
+type ReactionType int
+
+const (
+	block ReactionType = iota
+	swingback
+	reflect
+)
+
 // PermanentBonus é um exemplo de SpecialNature: enquanto este card está na mão
 // (ou foi jogado permanentemente), modifica algum aspecto do jogo.
 type PermanentBonus struct {
-	Trigger TriggerType
-	Actions []ActionInstance
+	Trigger Trigger
+	Actions []Action
 }
 
-type Element struct {
-	any
+type Element int
+
+const (
+	ElementNormal Element = iota
+	ElementDarkness
+	ElementWater
+	ElementFire
+	ElementGround
+	ElementPlant
+	ElementLight
+)
+
+var elementName = map[Element]string{
+	ElementNormal:   "Normal",
+	ElementDarkness: "Darkness",
+	ElementWater:    "Water",
+	ElementFire:     "Fire",
+	ElementGround:   "Ground",
+	ElementPlant:    "Plant",
+	ElementLight:    "Light",
 }
 
-type TriggerType struct {
-	any
-}
+type TriggerType int
 
+const (
+	onHit TriggerType = iota
+	onDeath
+	onRoundStart
+	onTurnStart
+	onTurnEnd
+	onDefenseTurn
+	onAttackTurn
+)
+
+type Action struct {
+	ActionType
+	Data any
+	TargetSpec
+}
 type ActionInstance struct {
-	any
+	Action
+	Targets []*Player
 }
 type TriggerAction struct {
-	Trigger Trigger
-	Action  Action
-	Source  *Player
-	Target  TargetSpec
+	Condition Trigger
+	Action    Action
 }
 type Trigger struct {
-	any
+	TriggerType TriggerType
+	Data        any
 }
-type Action struct {
-	any
-}
+
+type ActionType int
+
+const (
+	attributeEffect ActionType = iota
+	setProperties              // setProperties health: 8, money: 8,
+	addProperties              //heal goes here as addProperties, health: 5
+
+)
+
 type TargetSpec struct {
-	any
+	TargetType TargetType
+	quantity   int // if 0 q = 1
 }
-type Effect struct {
-	any
-}
-type StatusEffect struct {
-	any
-}
+
+type TargetType int
+
+const (
+	randomAny TargetType = iota
+	randomEnemy
+	all
+	allEnemy
+	self
+	chosen
+)
+
+type Effect int
+
+type StatusEffect int
+
+const (
+	dream StatusEffect = iota
+	unluck
+	cold
+	fever
+	inferno
+	heaven
+	fog
+	flash
+)
+
 type Connection struct {
 	any
 }
 type Channel struct {
 	any
 }
+
+//func StackElements(a, b Element) Element {
+//	if (a == "light" && b.Name == "darkness") || (a.Name == "darkness" && b.Name == "light") {
+//		return ElementNormal
+//	}
+//	if a.Name == "light" {
+//		return b
+//	}
+//	if b.Name == "light" {
+//		return a
+//	}
+//	if a.Name == b.Name {
+//		return a
+//	}
+//	return ElementNormal
+//}
