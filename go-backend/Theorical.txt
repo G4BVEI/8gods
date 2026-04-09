@@ -2,7 +2,7 @@ Base
     There can only be up to 8 players in a room
     The objective is to be the last remaining player
     All cards have rarity and price (both integers)
-    Theres 4 card types including attack, miracles, defense, consumables and special cards(revive on death for example)
+    Theres 4 card types including attack, miracles, defense, consumables and passive cards(revive on death for example)
     There are 2 decks
         Attack deck: includes attacks
         Secondary deck: which include everything else

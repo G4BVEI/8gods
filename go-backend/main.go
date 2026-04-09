@@ -1,7 +1,8 @@
 package main
 
-// ===================== CORE =====================
+import "reflect"
 
+// ===================== CORE =====================
 type (
 	//AllRooms struct {
 	//	Rooms       []*Channel
@@ -20,8 +21,8 @@ type (
 		//		EffectTimeline       [][]TriggerAction //index 0 always acts as the current round, its an sliding window for delayed card effects
 		//		PermanentEffects     []Effect          // such as gameorder shuffled/inversed
 		//		PermanentTriggers    []TriggerAction   // efeitos permanentes de mesa (termino-da-criacao)
-		PlayedCardLog []int // registro de todas as cartas jogadas (passado, boneco-mimico)
-		Store         []int //acting as card id
+		Cemetery []int // registro de todas as cartas jogadas (passado, boneco-mimico)
+		Store    []int //acting as card id
 		//		ApocalipseHasStarted bool
 		UsedMiracles map[string]int //string as playername, int as cardid
 	}
@@ -61,13 +62,13 @@ type Card struct {
 	// Uma carta pode ter Active + Defense simultaneamente.
 	// O engine resolve qual nature usar baseado na fase do turno:
 	// fase de ataque → Active, fase de defesa → Defense. Special -> passivo
-	Active  ActiveNature  //ataques/consumiveis etc
-	Defense DefenseNature //refletir, rebater, defender
-	Special SpecialNature // passivo /permanente, não depende de fase
+	onAction   //ataques/consumiveis etc
+	*onDefense //refletir, rebater, defender
+	onPassive  // passivo /permanente, não depende de fase
 }
 
 // ActiveNature
-type ActiveNature interface {
+type onAction interface {
 	isActive()
 }
 
@@ -76,23 +77,16 @@ func (ProbAttackType) isActive() {}
 func (Consumable) isActive()     {}
 
 // DefenseNature
-type DefenseNature interface {
-	isDefense()
-}
-
-func (DefenseType) isDefense() {}
-func (ReactType) isDefense()   {}
 
 // Special Nature
-type SpecialNature interface {
-	isSpecial()
+type onPassive interface {
+	isPassive()
 }
 
-func (PassiveType) isSpecial() {}
+func (PassiveType) isPassive() {}
 
 type PassiveType struct {
-	Trigger
-	Action
+	Behaviour []TriggerAction
 }
 
 type UsedMiracle struct {
@@ -139,7 +133,7 @@ type ProbAttackType struct {
 
 type Outcome struct {
 	Probability int
-	Nature      ActiveNature // AttackType, ProbAttackType, Consumable, etc.
+	onAction    // AttackType, ProbAttackType, Consumable, etc.
 	Target      TargetSpec
 }
 
@@ -151,27 +145,30 @@ type Consumable struct {
 
 // ===================== DEFENSE =====================
 
-// DefenseResponse descreve o que acontece quando este card intercepta algo.
-// Block e Reflect podem ser true simultaneamente.
-
-// DefenseCapability declara quais categorias de jogadas este card pode
-// interceptar e como responde a cada uma. Zero value = não faz nada.
-
-type DefenseType struct {
-	DamageDefended int
-	Element                        // tipo elemental deste card — determina quais ataques ele bloqueia
-	Triggers       []TriggerAction // reações após levar dano (pecado-ganacioso, anel-de-mana, destruidor-da-luz)
+type DefenseType interface {
+	isDefenseType()
 }
 
-type ReactType struct {
+func (ModifyType) isDefenseType() {}
+func (ReduceType) isDefenseType() {}
+
+type onDefense struct {
+	Attack     DefenseType
+	Miracle    DefenseType
+	Consumable DefenseType
+	AoE        DefenseType
+	Curse      DefenseType
+}
+
+type ReduceType struct {
+	DamageReduced int
+	Element                       // tipo elemental deste card — determina quais ataques ele bloqueia
+	Triggers      []TriggerAction // reações após levar dano (pecado-ganacioso, anel-de-mana, destruidor-da-luz)
+}
+
+type ModifyType struct {
 	ReactionType
-	Element Element //what element it is, if null = light
-	//each of the following represent what this reaction applies to
-	Attack     bool // nondeclared = false
-	Miracle    bool // nondeclared = false
-	Consumable bool // nondeclared = false
-	AoE        bool // nondeclared = false
-	Curse      bool // nondeclared = false
+	Elements []Element //what element it can React to
 }
 
 type ReactionType int
@@ -179,7 +176,7 @@ type ReactionType int
 const (
 	block ReactionType = iota
 	swingback
-	reflect
+	deflect
 )
 
 // PermanentBonus é um exemplo de SpecialNature: enquanto este card está na mão
@@ -210,6 +207,9 @@ var elementName = map[Element]string{
 	ElementPlant:    "Plant",
 	ElementLight:    "Light",
 }
+var expectedData = map[TriggerType]reflect.Type{
+	onHit: reflect.TypeOf((*Player)(nil)),
+}
 
 type TriggerType int
 
@@ -221,6 +221,9 @@ const (
 	onTurnEnd
 	onDefenseTurn
 	onAttackTurn
+	onAttackEvaluation
+	onMiss
+	onDefenseEvaluation
 )
 
 type Action struct {
@@ -247,12 +250,14 @@ const (
 	attributeEffect ActionType = iota
 	setProperties              // setProperties health: 8, money: 8,
 	addProperties              //heal goes here as addProperties, health: 5
-
+	addCardToStack
+	ShowCard            //probably better as a composable?
+	getCardFromCemetery //by index or any/all
 )
 
 type TargetSpec struct {
 	TargetType TargetType
-	quantity   int // if 0 q = 1
+	Quantity   int // if 0 q = 1
 }
 
 type TargetType int

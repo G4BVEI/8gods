@@ -1,51 +1,9 @@
 [
   {
-    "id": "termino-da-criacao",
-    "name": "termino-da-criação",
-    "img": "Att/termino-da-criação.png",
-    "description": "+5 de luz. Ao jogar a carta ela fica para sempre na mesa como dano extra para todos poderem usarem em ataques futuros."
-  },
-  {
-    "id": "passado",
-    "name": "pássado",
-    "img": "Att/pássado.png",
-    "description": "Pegue qualquer carta que já foi jogada no descarte e coloque na sua mão"
-  },
-  {
-    "id": "tempo-relativo",
-    "name": "tempo-relativo",
-    "img": "Att/tempo-relativo.png",
-    "description": "Ao jogar essa carta jogue como se tivesse 3x turnos para essa rodada"
-  },
-  {
-    "id": "lananca",
-    "name": "lananca",
-    "img": "Att/lananca.png",
-    "description": "Causa 1 de dano de luz em todos os alvos. Ao vender o preço pode ser de de 1 a 88"
-  },
-  {
-    "id": "abismo-injusto",
-    "name": "abismo-injusto",
-    "img": "Att/abismo-injusto.png",
-    "description": "O alvo joga todas as cartas de defesa no descarte e fica sem repor elas."
-  },
-  {
-    "id": "contrato-magico",
-    "name": "contrato-mágico",
-    "img": "Att/contrato-mágico.png",
-    "description": "Troque os itens da loja e aumente +1 slot. Compre por 10 moedas qualquer item da nova loja"
-  },
-  {
     "id": "reflexo-do-heroi",
     "name": "reflexo-do-héroi",
     "img": "Att/reflexo-do-héroi.png",
     "description": "Causa 5 de dano neutro, ou reflete ataque"
-  },
-  {
-    "id": "bomba-do-destino",
-    "name": "bomba-do-destino",
-    "img": "Att/bomba-do-destino.png",
-    "description": "Ao jogar de para um jogador, todos que pegam a bomba são obrigados a dar para outro jogador no final do turno como um turno extra. 30% de chance de explodir na sua mão e causa 20 de dano de luz."
   },
   {
     "id": "pe-quente",
@@ -70,12 +28,7 @@
     "img": "Defesas/tabua.png",
     "description": "Protege 3 de pedra"
   },
-  {
-    "id": "limpador-profundo",
-    "name": "limpador-profundo",
-    "img": "Defesas/limpador-profundo.png",
-    "description": "Limpa todos elementos e transforma em neutro. Defende 3."
-  },
+
   {
     "id": "escudo-da-floresta",
     "name": "escudo-da-floresta",
@@ -88,12 +41,7 @@
     "img": "Defesas/lasca-de-proteção.png",
     "description": "Protege 4 de planta"
   },
-  {
-    "id": "louco-e-sonhador",
-    "name": "louco-e-sonhador",
-    "img": "Defesas/louco-e-sonhador.png",
-    "description": "Defende 10 neutro. Ao usar jogue fora toda sua mão e compre 10 cartas."
-  },
+
   {
     "id": "escudo-da-divindade",
     "name": "escudo-da-divindade",
@@ -208,23 +156,12 @@
     "img": "Defesas/espelho.png",
     "description": "REFLETE TUDO!"
   },
-  {
-    "id": "escudo-angelical",
-    "name": "escudo-angelical",
-    "img": "Defesas/escudo-angelical.png",
-    "description": "Defende 12. Bloqueia milagre"
-  },
+
   {
     "id": "peitoral-humanoide",
     "name": "peitoral-humanoide",
     "img": "Defesas/peitoral-humanoide.png",
     "description": "Defende 10"
-  },
-  {
-    "id": "roubo-da-inveja",
-    "name": "roubo-da-inveja",
-    "img": "Defesas/roubo-da-inveja.png",
-    "description": "Pegue uma carta aléatoria e troque por uma carta da sua mão"
   },
   {
     "id": "mascara-do-castigo",
@@ -261,12 +198,6 @@
     "name": "fresco-defensor",
     "img": "Defesas/fresco-defensor.png",
     "description": "Defende 10 de fogo"
-  },
-  {
-    "id": "muralhas-dos-ceus-certa",
-    "name": "muralhas-dos-ceus-certa",
-    "img": "Defesas/muralhas-dos-ceus-certa.png",
-    "description": "Bloqueia qualquer dano de planta ou neutro"
   },
   {
     "id": "roupao-divino",
@@ -383,12 +314,6 @@
     "description": "Obriga o alvo a comprar um item seu"
   },
   {
-    "id": "mao-de-inveja",
-    "name": "mao-de-inveja",
-    "img": "Baralho diverso/mao-de-inveja.png",
-    "description": "Deixe as 3 cartas do alvo a amostra para todos da mesa. Roube 1 carta sem pagar nada ao alvo."
-  },
-  {
     "id": "sabao-de-petolas-florais",
     "name": "sabao-de-petolas-florais",
     "img": "Baralho diverso/sabao-de-petolas-florais.png",
@@ -404,19 +329,13 @@
     "id": "caos-engarrafado",
     "name": "caos-engarrafado",
     "img": "Baralho diverso/caos-engarrafado.png",
-    "description": "Chance de 10% para cada um: 1: Morra imediatamente 2:Receba 10 de dano indefensável 3: Perca todas os milagres, e caso seja um deus vire um mortal, 5: Fique co inferno 6: Recupere 10 de vida, 7:Ganha 30 de mana. 8: Fique com céus, 9: Sumone profeta 10: Sua vida fica em 88"
+    "description": "Chance de 10% para cada um: 1: Morra imediatamente 2:Receba 10 de dano indefensável 3: Perca todas os milagres, e caso seja um deus vire um mortal, 5: Fique com inferno 6: Recupere 10 de vida, 7:Ganha 30 de mana. 8: Fique com céus, 9: Sumone profeta 10: Sua vida fica em 88"
   },
   {
     "id": "flor-de-maninha",
     "name": "flor-de-maninha",
     "img": "Baralho diverso/flor-de-maninha.png",
     "description": "Gere 5MP"
-  },
-  {
-    "id": "colagem-infinita",
-    "name": "colagem-infinita",
-    "img": "Baralho diverso/colagem-infinita.png",
-    "description": "Cole 2 armas que não tem + para combar como se fosse uma unica arma. Todos os itens com + não podem ser usados nesse ataque"
   },
   {
     "id": "amuleto-da-vida-eterna",
@@ -431,12 +350,6 @@
     "description": "Quando morrer volte a vida com os mesmos estatus de quando você iniciou o jogo"
   },
   {
-    "id": "idolo-de-pano",
-    "name": "idolo-de-pano",
-    "img": "Baralho diverso/idolo-de-pano.png",
-    "description": "Faz milagre sem custos"
-  },
-  {
     "id": "pequena-fortuna",
     "name": "pequena-fortuna",
     "img": "Baralho diverso/pequena-fortuna.png",
@@ -448,60 +361,28 @@
     "img": "Baralho diverso/sangue-humanoide.png",
     "description": "Gere 5hp"
   },
-  {
-    "id": "troca-troca",
-    "name": "troca-troca",
-    "img": "Baralho diverso/troca-troca.png",
-    "description": "Troque 5 pontos de lugar 3x"
-  },
+
   {
     "id": "caixote-florido",
     "name": "caixote-florido",
     "img": "Baralho diverso/caixote-florido.png",
     "description": "Gere 20MP"
   },
-  {
-    "id": "libertacao-do-caos",
-    "name": "libertacao-do-caos",
-    "img": "Baralho diverso/libertacao-do-caos.png",
-    "description": "Chance de 10% para cada um: 1:Todos ficam com 8 em todos os estatus 2: Todos trocam a mâo com o de baixo 3:Causa 15 de dano negro em 2 alvos escolhidos por quem jogou a carta 4:Todos ficam com dinheiro e mana zerados e você e um alvo aléatorio  ficam com 30 em dinheiro e mana. 5: Causa 88 de dano em alvo aléatorio 6:Todos ficam confusos e perdem controle para bot por 3 turnos 7: Todos ganham um profeta 8: Todos ficam com céus 9: Todos ficam com cegueira 10: Todos perdem 4 cartas aléatorias e ganham 4 novas"
-  },
-  {
-    "id": "concha-marinha",
-    "name": "concha-marinha",
-    "img": "Baralho diverso/concha-marinha.png",
-    "description": "Tira: cegueira, resfriado e febre"
-  },
-  {
-    "id": "limpador-de-poder",
-    "name": "limpador-de-poder",
-    "img": "Baralho diverso/limpador-de-poder.png",
-    "description": "Limpa todos elementos e trasforma em neutro. Defende 3"
-  },
+
   {
     "id": "floriado",
     "name": "floriado",
     "img": "Baralho diverso/floriado.png",
     "description": "Gera 10 MP"
   },
-  {
-    "id": "mao-do-pecado",
-    "name": "mao-do-pecado",
-    "img": "Baralho diverso/mao-do-pecado.png",
-    "description": "Cancela a carta de ataque e pega ela para você, ou use essa carta para jogar uma das cartas do alvo como ataque extra"
-  },
+
   {
     "id": "sangue-semideus",
     "name": "sangue-semideus",
     "img": "Baralho diverso/sangue-semideus.png",
     "description": "Gera 10 HP"
   },
-  {
-    "id": "comprar",
-    "name": "comprar",
-    "img": "Baralho diverso/comprar.png",
-    "description": "Retire uma carta aléatoria do seu alvo e compre o item se quiser."
-  },
+
   {
     "id": "terra-prometida",
     "name": "terra-prometida",
@@ -550,23 +431,12 @@
     "img": "Adicionais/cacos-de-vidro.png",
     "description": "+9 de vidro"
   },
-  {
-    "id": "magma-derretido",
-    "name": "magma-derretido",
-    "img": "Adicionais/magma-derretido.png",
-    "description": "Adiciona +3 de dano de fogo e transforma em dano de fogo"
-  },
+
   {
     "id": "flecha-negra",
     "name": "flecha-negra",
     "img": "Adicionais/flecha-negra.png",
     "description": "+5 de dano negro"
-  },
-  {
-    "id": "vara-cristalina",
-    "name": "vara-cristalina",
-    "img": "Adicionais/vara-cristalina.png",
-    "description": "Adiciona +3 de dano de água e transforma todo o dano em dano de água"
   },
   {
     "id": "dna",
@@ -580,12 +450,7 @@
     "img": "Adicionais/estaca.png",
     "description": "+1 de dano de planta. Gera efeito de sugar vida"
   },
-  {
-    "id": "boneco-mimico",
-    "name": "boneco-mimico",
-    "img": "Adicionais/boneco-mimico.png",
-    "description": "Imita a ultima carta de ataque ou defesas jogadas"
-  },
+
   {
     "id": "pena-de-ferro",
     "name": "pena-de-ferro",
@@ -935,12 +800,6 @@
     "description": "8 de dano de pedra em um alvo"
   },
   {
-    "id": "linhas-do-tempo",
-    "name": "linhas-do-tempo",
-    "img": "Armas/linhas-do-tempo.png",
-    "description": "Faz ser possível selecionar 2 alvos para receber o dano"
-  },
-  {
     "id": "martelo-de-bronze",
     "name": "martelo-de-bronze",
     "img": "Armas/martelo-de-bronze.png",
@@ -965,9 +824,9 @@
     "description": "Gasta todo o dinheiro do jogador e converte em dano neutro."
   },
   {
-    "id": "apagao-da-realidade",
-    "name": "Apagão da Realidade",
-    "img": "Ataques/apagao.png",
-    "description": "Causa 4 de dano de luz. Ao sofrer dano, o alvo descarta 4 cartas e não repõe na próxima rodada."
+    "id": "escudo-angelical",
+    "name": "escudo-angelical",
+    "img": "Defesas/escudo-angelical.png",
+    "description": "Defende 12. Bloqueia milagre"
   }
 ]
