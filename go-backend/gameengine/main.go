@@ -14,17 +14,18 @@ type (
 		Gamestate Gamestate
 	}
 	Gamestate struct {
-		PlayerOrder []*Player
-		//		ActivePlayer         *Player
+		PlayerOrder  []*Player
+		ActivePlayer *Player
 		//		HasPlayed            []*Player //if everyone has played we count a round pass
 		//		CurrentRound         int
 		//		EffectTimeline       [][]TriggerAction //index 0 always acts as the current round, its an sliding window for delayed card effects
 		//		PermanentEffects     []Effect          // such as gameorder shuffled/inversed
-		//		PermanentTriggers    []TriggerAction   // efeitos permanentes de mesa (termino-da-criacao)
-		Cemetery []int // registro de todas as cartas jogadas (passado, boneco-mimico)
-		Store    []int //acting as card id
+		Triggers []TriggerAction // efeitos permanentes de mesa (termino-da-criacao)
+		Cemetery []int           // registro de todas as cartas jogadas (passado, boneco-mimico)
+		Store    []int           //acting as card id
 		//		ApocalipseHasStarted bool
 		UsedMiracles map[string]int //string as playername, int as cardid
+		Ended        bool
 	}
 )
 
@@ -43,7 +44,7 @@ type Player struct {
 	// if value = 0 card is real
 	UsedMiracles   []int // miracles revelados — visíveis a todos após primeiro uso
 	StatusEffects  []StatusEffect
-	ActiveTriggers map[TriggerType][]*Card
+	ActiveTriggers map[Trigger][]*Card
 }
 
 // ===================== CARD =====================
@@ -207,9 +208,6 @@ var elementName = map[Element]string{
 	ElementPlant:    "Plant",
 	ElementLight:    "Light",
 }
-var expectedData = map[TriggerType]reflect.Type{
-	onHit: reflect.TypeOf((*Player)(nil)),
-}
 
 type TriggerType int
 
@@ -225,6 +223,19 @@ const (
 	onMiss
 	onDefenseEvaluation
 )
+
+var expectedTriggerData = map[TriggerType]reflect.Type{
+	onHit:               reflect.TypeOf([]*Player(nil)),
+	onDeath:             reflect.TypeOf([]*Player(nil)),
+	onRoundStart:        reflect.TypeOf(int32(0)),
+	onTurnStart:         reflect.TypeOf([]*Player(nil)),
+	onTurnEnd:           reflect.TypeOf([]*Player(nil)),
+	onDefenseTurn:       reflect.TypeOf([]*Player(nil)),
+	onAttackTurn:        reflect.TypeOf([]*Player(nil)),
+	onAttackEvaluation:  reflect.TypeOf([]*Player(nil)),
+	onMiss:              reflect.TypeOf([]*Player(nil)),
+	onDefenseEvaluation: reflect.TypeOf([]*Player(nil)),
+}
 
 type Action struct {
 	ActionType
@@ -251,8 +262,46 @@ const (
 	setProperties              // setProperties health: 8, money: 8,
 	addProperties              //heal goes here as addProperties, health: 5
 	addCardToStack
-	ShowCard            //probably better as a composable?
+	ShowCard //probably better as a composable?
+	StealCard
 	getCardFromCemetery //by index or any/all
+	refreshStore
+	modifyStoreCount
+	setStoreCount
+	healCondition
+)
+
+type PropertyDelta struct {
+	Health int16
+	Money  int16
+	Mana   int16
+}
+type NoData struct{}
+
+var expectedActionData = map[ActionType]reflect.Type{
+	attributeEffect:     reflect.TypeOf([]StatusEffect(nil)),
+	setProperties:       reflect.TypeOf(PropertyDelta{}),
+	addProperties:       reflect.TypeOf(PropertyDelta{}),
+	addCardToStack:      reflect.TypeOf(int16(0)), //acting as id
+	ShowCard:            reflect.TypeOf(int16(0)), //havent figured this one out
+	StealCard:           reflect.TypeOf(int16(0)),
+	getCardFromCemetery: reflect.TypeOf(GetCardFromCemetery{}),
+	refreshStore:        reflect.TypeOf(NoData{}),
+	modifyStoreCount:    reflect.TypeOf(int16(0)),
+	setStoreCount:       reflect.TypeOf(int16(0)),
+	healCondition:       reflect.TypeOf([]StatusEffect(nil)),
+}
+
+type GetCardFromCemetery struct {
+	Mode  CemeteryMode
+	index int
+}
+
+type CemeteryMode int
+
+const (
+	CemeteryAny CemeteryMode = iota
+	CemeteryIndex
 )
 
 type TargetSpec struct {
@@ -293,18 +342,32 @@ type Channel struct {
 	any
 }
 
-//func StackElements(a, b Element) Element {
-//	if (a == "light" && b.Name == "darkness") || (a.Name == "darkness" && b.Name == "light") {
+//	func StackElements(a, b Element) Element {
+//		if (a == "light" && b.Name == "darkness") || (a.Name == "darkness" && b.Name == "light") {
+//			return ElementNormal
+//		}
+//		if a.Name == "light" {
+//			return b
+//		}
+//		if b.Name == "light" {
+//			return a
+//		}
+//		if a.Name == b.Name {
+//			return a
+//		}
 //		return ElementNormal
 //	}
-//	if a.Name == "light" {
-//		return b
-//	}
-//	if b.Name == "light" {
-//		return a
-//	}
-//	if a.Name == b.Name {
-//		return a
-//	}
-//	return ElementNormal
-//}
+func SortPlayers() {
+}
+func AwaitForPlay(*Player) {}
+func gameloop() {
+	SortPlayers()
+
+}
+func attackloop(ctx Gamestate) {
+	for ctx.Ended == false { //check if the game has ended
+		AwaitForPlay(ctx.ActivePlayer)
+	}
+	AwaitForEndGame()
+}
+func AwaitForEndGame() {}

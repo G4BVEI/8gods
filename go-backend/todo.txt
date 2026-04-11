@@ -1,0 +1,7 @@
+[] Support card manipulation
+[] Support change("troca") of attributes
+[] Gameloop
+[] Hub/websockets/routine-rooms
+    [] Hub
+    [] Websockets
+    [] Goroutines for rooms

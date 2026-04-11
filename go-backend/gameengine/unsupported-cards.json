@@ -3,13 +3,15 @@
     "id": "termino-da-criacao",
     "name": "termino-da-criação",
     "img": "Att/termino-da-criação.png",
-    "description": "+5 de luz. Ao jogar a carta ela fica para sempre na mesa como dano extra para todos poderem usarem em ataques futuros."
+    "description": "+5 de luz. Ao jogar a carta ela fica para sempre na mesa como dano extra para todos poderem usarem em ataques futuros.",
+    "solved": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
   },
   {
     "id": "passado",
     "name": "pássado",
     "img": "Att/pássado.png",
-    "description": "Pegue qualquer carta que já foi jogada no descarte e coloque na sua mão"
+    "description": "Pegue qualquer carta que já foi jogada no descarte e coloque na sua mão",
+    "solved": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
   },
   {
     "id": "tempo-relativo",
@@ -87,7 +89,8 @@
     "id": "concha-marinha",
     "name": "concha-marinha",
     "img": "Baralho diverso/concha-marinha.png",
-    "description": "Tira: cegueira, resfriado e febre"
+    "description": "Tira: cegueira, resfriado e febre",
+    "solved": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
   },
   {
     "id": "limpador-de-poder",
